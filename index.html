@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell: Your Meditation Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mindwell-blue': '#8ECAE6',
+                        'mindwell-teal': '#219EBC',
+                        'mindwell-dark': '#023047',
+                        'mindwell-yellow': '#FFB703',
+                        'mindwell-orange': '#FB8500',
+                        'mindwell-light': '#F8F9FA',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-gradient-to-br from-mindwell-light via-white to-mindwell-light text-mindwell-dark;
+            }
+            .phone-mockup {
+                @apply relative w-72 h-[500px] mx-auto rounded-[40px] border-[12px] border-mindwell-dark shadow-2xl overflow-hidden;
+            }
+            .phone-screen {
+                @apply w-full h-full bg-gradient-to-b from-mindwell-teal/10 to-mindwell-blue/10;
+            }
+            .feature-card {
+                @apply p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+            }
+            .testimonial-card {
+                @apply p-8 bg-white rounded-2xl shadow-lg border border-mindwell-blue/20;
+            }
+            .step-card {
+                @apply flex flex-col items-center text-center p-6 bg-gradient-to-b from-white to-mindwell-light rounded-2xl shadow-lg;
+            }
+            .app-btn {
+                @apply flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans">
+    <!-- Navigation -->
+    <nav class="py-6 px-4 sm:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-mindwell-teal to-mindwell-blue flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-bold text-mindwell-dark">Mind<span class="text-mindwell-teal">Well</span></span>
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="#features" class="text-mindwell-dark hover:text-mindwell-teal font-medium">Features</a>
+                <a href="#how-it-works" class="text-mindwell-dark hover:text-mindwell-teal font-medium">How It Works</a>
+                <a href="#testimonials" class="text-mindwell-dark hover:text-mindwell-teal font-medium">Testimonials</a>
+            </div>
+            <button class="bg-gradient-to-r from-mindwell-teal to-mindwell-blue text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg transition-shadow duration-300">
+                Download
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4 sm:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="text-center lg:text-left">
+                <h1 class="text-5xl md:text-6xl font-bold font-serif text-mindwell-dark leading-tight">
+                    Find Your Calm <span class="text-mindwell-teal">in Minutes</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
+                    Join thousands of users who reduce stress and improve sleep with MindWell, your personal meditation guide.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-6">
+                    <button class="app-btn bg-black text-white">
+                        <i class="fab fa-apple text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs">Download on the</div>
+                            <div class="text-lg">App Store</div>
+                        </div>
+                    </button>
+                    <button class="app-btn bg-white text-gray-800 border border-gray-200">
+                        <i class="fab fa-google-play text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs">GET IT ON</div>
+                            <div class="text-lg">Google Play</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="phone-mockup">
+                    <div class="phone-screen relative">
+                        <!-- App screen content -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center p-8">
+                            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-mindwell-blue to-mindwell-teal flex items-center justify-center mb-6">
+                                <i class="fas fa-cloud text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-mindwell-dark mb-2">Deep Breathing</h3>
+                            <p class="text-gray-600 mb-6 text-center">Follow the rhythm to find your calm</p>
+                            <div class="w-48 h-48 rounded-full border-4 border-mindwell-teal/30 flex items-center justify-center animate-pulse-slow">
+                                <div class="w-40 h-40 rounded-full border-4 border-mindwell-teal flex items-center justify-center">
+                                    <span class="text-4xl font-bold text-mindwell-teal">5:00</span>
+                                </div>
+                            </div>
+                            <div class="mt-8 flex gap-4">
+                                <button class="w-12 h-12 rounded-full bg-mindwell-blue flex items-center justify-center">
+                                    <i class="fas fa-pause text-white"></i>
+                                </button>
+                                <button class="w-12 h-12 rounded-full bg-mindwell-teal flex items-center justify-center">
+                                    <i class="fas fa-forward text-white"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-mindwell-yellow/20 -z-10 animate-float"></div>
+                <div class="absolute -bottom-8 -right-8 w-40 h-40 rounded-full bg-mindwell-blue/20 -z-10 animate-float animation-delay-2000"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-white to-mindwell-light">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold font-serif text-mindwell-dark mb-6">Transform Your Daily Routine</h2>
+                <p class="text-xl text-gray-600">Discover powerful tools designed to bring peace and clarity to your life</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="w-16 h-16 rounded-2xl bg-mindwell-blue/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-headphones text-3xl text-mindwell-teal"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Guided Meditations</h3>
+                    <p class="text-gray-600">Over 100 guided sessions for stress relief, focus, and emotional balance.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="w-16 h-16 rounded-2xl bg-mindwell-orange/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-bed text-3xl text-mindwell-orange"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Sleep Stories</h3>
+                    <p class="text-gray-600">Soothing narratives to help you fall asleep faster and sleep more soundly.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="w-16 h-16 rounded-2xl bg-mindwell-teal/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-wind text-3xl text-mindwell-teal"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Breathing Exercises</h3>
+                    <p class="text-gray-600">Customizable breathing techniques to calm your mind anytime, anywhere.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="w-16 h-16 rounded-2xl bg-mindwell-yellow/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-3xl text-mindwell-yellow"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Progress Tracking</h3>
+                    <p class="text-gray-600">Visualize your journey with insights into your mindfulness practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 px-4 sm:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold font-serif text-mindwell-dark mb-6">Simple Steps to Inner Peace</h2>
+                <p class="text-xl text-gray-600">Getting started with mindfulness has never been easier</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-mindwell-blue to-mindwell-teal flex items-center justify-center text-white text-3xl font-bold mb-6">1</div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Choose a Session</h3>
+                    <p class="text-gray-600">Select from our library of meditations based on your goals and available time.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-mindwell-orange to-mindwell-yellow flex items-center justify-center text-white text-3xl font-bold mb-6">2</div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Listen & Relax</h3>
+                    <p class="text-gray-600">Follow the gentle guidance and let your mind find its natural state of calm.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-mindwell-teal to-mindwell-blue flex items-center justify-center text-white text-3xl font-bold mb-6">3</div>
+                    <h3 class="text-2xl font-bold text-mindwell-dark mb-3">Track Your Progress</h3>
+                    <p class="text-gray-600">See how your practice evolves and celebrate your mindfulness milestones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-mindwell-light to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold font-serif text-mindwell-dark mb-6">What Our Users Say</h2>
+                <p class="text-xl text-gray-600">Join thousands who have transformed their lives with MindWell</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-mindwell-blue to-mindwell-teal"></div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Sarah J.</h4>
+                            <div class="flex text-mindwell-yellow">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"MindWell has completely changed my mornings. The 5-minute meditations help me start my day with clarity and purpose. I've never felt more grounded."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-mindwell-orange to-mindwell-yellow"></div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Michael T.</h4>
+                            <div class="flex text-mindwell-yellow">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As someone who struggled with insomnia for years, the sleep stories have been a game-changer. I now fall asleep within 15 minutes every night."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-mindwell-teal to-mindwell-blue"></div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-lg">Emma L.</h4>
+                            <div class="flex text-mindwell-yellow">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The breathing exercises help me manage my anxiety during work. I use them before important meetings and feel so much more centered and focused."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="py-20 px-4 sm:px-8 lg:px-16">
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-mindwell-blue to-mindwell-teal rounded-3xl p-12 text-center shadow-2xl">
+            <h2 class="text-4xl font-bold font-serif text-white mb-6">Start Your Mindfulness Journey Today</h2>
+            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">Join over 500,000 users who have found peace and balance with MindWell. Download now and experience the transformation.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <button class="app-btn bg-black text-white">
+                    <i class="fab fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download on the</div>
+                        <div class="text-lg">App Store</div>
+                    </div>
+                </button>
+                <button class="app-btn bg-white text-gray-800">
+                    <i class="fab fa-google-play text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">GET IT ON</div>
+                        <div class="text-lg">Google Play</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-8 lg:px-16 bg-mindwell-dark text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center space-x-2 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-mindwell-teal to-mindwell-blue flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold">Mind<span class="text-mindwell-teal">Well</span></span>
+                </div>
+                <p class="text-gray-400 max-w-md">Your personal meditation guide designed to help you find calm, reduce stress, and improve sleep quality through science-backed mindfulness techniques.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Meditation Guides</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Sleep Tips</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Breathing Techniques</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Mindfulness Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+            <p>&copy; 2023 MindWell. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
